@@ -2,6 +2,7 @@
 __author__ = 'lg'
 from selenium import webdriver
 from pageObject import loginPage
+from pageObject import mainPage
 import time
 driver = webdriver.Chrome()
 
@@ -14,9 +15,9 @@ login.password('asdf123')
 login.logon()
 
 #driver.switch_to.window(driver.window_handles[-1])
+mPage = mainPage.mainPage(driver)
 
-#"//a[@herf='/accept_weeks/new']")
-#driver.find_element_by_xpath(u"//input[@value='登录系统']").click()
+mPage.importDeviceManual()
 time.sleep(5)
 
 driver.quit()
