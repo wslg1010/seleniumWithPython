@@ -1,13 +1,12 @@
 #coding:utf-8
-__author__ = 'lg'
+__author__ = 'LG'
 import unittest
 from selenium import webdriver
 from pageObject import loginPage
-from testCase import logonCase
+from pageObject import mainPage
 import time
-import HTMLTestRunner
 
-class CMCCCloud(unittest.TestCase):
+class logonCase(unittest.TestCase):
     def setUp(self):
         #pass
         driver = webdriver.Chrome()
@@ -20,6 +19,9 @@ class CMCCCloud(unittest.TestCase):
         time.sleep(5)
         self._driver.quit()
 
+    def runTest(self):
+        print 'aaaaaaaaa'
+
     def test_login(self):
         login = loginPage.loginPage(self._driver)
         login.username('admin')
@@ -31,22 +33,3 @@ class CMCCCloud(unittest.TestCase):
     # main = mainPage.mainPage(driver)
     #
     # main.importDeviceManual()
-if __name__ =='__main__':
-    #unittest.main()
-    #print CMCCCloud('test_login')
-    logon = logonCase.logonCase
-    #print logon("test_login")
-    testsuite = unittest.TestSuite()
-    #添加测试用例到测试集中
-    testsuite.addTest(logon("test_login"))
-    # 生成测试报告文件
-    print CMCCCloud('test_login')
-    filename = 'D:\\result1.html'
-    fp = file(filename, 'wb')
-    runner = HTMLTestRunner.HTMLTestRunner(
-                stream=fp,
-                title=u'测试结果',
-                description=u'测试报告.'
-                )
-    #runner = unittest.TextTestRunner()
-    runner.run(testsuite)
