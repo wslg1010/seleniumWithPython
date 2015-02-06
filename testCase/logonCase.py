@@ -30,9 +30,6 @@ class logonCase(unittest.TestCase):
         keyword = self._driver.find_element_by_class_name('li_login_wrap').text
         self.assertEqual(keyword,u'admin，您好！  [退出]')
     #driver.switch_to.window(driver.window_handles[-1])
-    # main = mainPage.mainPage(driver)
-    #
-    # main.importDeviceManual()
 
     def test_login1(self):
         login = loginPage.loginPage(self._driver)
